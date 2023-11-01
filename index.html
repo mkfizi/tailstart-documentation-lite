@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- SEO -->
+    <meta name="title" content="Tailstart">
+    <meta name="description" content="TailwindCSS library of multipurpose starter kits.">
+    <meta name="robots" content="index, follow">
+ 
+    <!-- Facebook open graph -->
+    <meta property="og:url" content="https://mkfizi.dev/tailstart">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tailstart">
+    <meta property="og:image" content="https://mkfizi.dev/tailstart/src/images/fb-og.jpg">
+    <meta name="description" content="TailwindCSS library of multipurpose starter kits.">
+    <meta property="og:site_name" content="Tailstart">
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@mkfizi">
+    <meta name="twitter:creator" content="@mkfizi">
+    <meta name="twitter:url" content="https://mkfizi.dev/tailstart">
+    <meta name="twitter:title" content="Tailstart">
+    <meta name="twitter:description" content="TailwindCSS library of multipurpose starter kits.">
+    <meta name="twitter:image" content="https://mkfizi.dev/tailstart/src/images/tw-card.jpg">
+
+    <!-- Favicon -->
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/css/app.css">
+    <link rel="preload" href="./src/css/app.css" as="style">
+
+    <!-- Scripts -->
+    <script src="./src/js/app.js" defer></script>
+    <link rel="preload" href="./src/js/app.js" as="script">
+
+    <!-- 
+        Handle dark mode toggle when the page is loaded.
+
+        These codes below are called here instead of being inside app.js 
+        to avoid FOUC should app.js type is defined as a module. 
+    -------------------------------------------------------------------------->
+    <script>
+        if (localStorage.theme === "light" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: light)").matches)) {
+            localStorage.theme = 'light';
+            document.documentElement.classList.remove("dark");
+        } else if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            localStorage.theme = 'dark';
+            document.documentElement.classList.add("dark")
+        };
+    </script>
+
+    <title>Tailstart | Documentation Lite</title>
+</head>
+<body class="relative min-h-screen antialiased bg-white dark:bg-neutral-900">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-10 bg-white border-b border-transparent dark:border-transparent dark:bg-neutral-900">
+        <div class="w-full max-w-screen-xl mx-auto divide-y divide-neutral-200 dark:divide-neutral-800 lg:divide-y-0">
+            <div class="flex items-center justify-between h-16 px-4 sm:px-8">
+
+                <div class="flex items-center gap-4">
+
+                    <!-- Sidebar menu open button -->
+                    <button id="sidebar-menu-open" type="button" class="group lg:hidden" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Open sidebar menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M4 6l16 0" />
+                            <path d="M4 12l16 0" />
+                            <path d="M4 18l16 0" />
+                        </svg>
+                    </button>
+                    
+                    <!-- Logo -->
+                    <a href="#" class="flex gap-4">
+                        <img src="./src/images/logo.png" alt="Tailstart logo" class="w-6 h-6 dark:hidden">
+                        <img src="./src/images/logo-dark.png" alt="Tailstart logo" class="hidden w-6 h-6 dark:block">
+                        <span class="text-lg font-bold text-black dark:text-white">Tailstart</span>
+                    </a>
+                </div>
+    
+                <div class="flex items-center gap-4">
+
+                    <!-- Navbar menu -->
+                    <div id="navbar-menu" class="fixed top-0 left-0 z-20 invisible hidden w-screen h-screen lg:block lg:visible bg-neutral-500/50 lg:bg-transparent lg:relative lg:w-auto lg:h-auto lg:left-auto lg:top-auto lg:z-0">
+                        <div class="fixed top-0 left-0 w-full h-full p-4 overflow-y-auto bg-white lg:overflow-y-visible lg:relative lg:h-auto lg:p-0 dark:bg-neutral-800 drop-shadow-md lg:bg-transparent lg:dark:bg-transparent lg:w-auto" aria-labelledby="navbar-menu">
+                            
+                            <!-- Navbar menu close button -->
+                            <button id="navbar-menu-close" type="button" class="absolute lg:hidden right-4 top-4 group" aria-controls="navbar-menu" aria-expanded="false" aria-label="Close navbar menu">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M18 6l-12 12" />
+                                    <path d="M6 6l12 12" />
+                                </svg>
+                            </button>
+                            
+                            <!-- Navbar menu link -->
+                            <ul class="space-y-4 lg:space-y-0 lg:flex lg:gap-8">
+                                <li>
+                                    <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Examples</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Showcases</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Developers</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Divider -->
+                    <div class="hidden w-px h-8 mx-4 lg:block bg-neutral-300 dark:bg-neutral-700"></div>
+                    
+                    <div class="flex gap-4">
+    
+                        <!-- Dark mode toggle button -->
+                        <button id="dark-mode-toggle" type="button" class="group" aria-label="Toggle dark mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 dark:hidden stroke-neutral-600 group-hover:stroke-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                                <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="hidden w-6 h-6 dark:block dark:stroke-neutral-400 group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                            </svg>
+                        </button>
+                        
+                        <a href="https://github.com/mkfizi/tailstart-documentation-lite" target="_blank" class="group" aria-label="Go to Github repository">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                            </svg>
+                        </a>
+    
+                        <!-- Navbar menu open button -->
+                        <button id="navbar-menu-open" type="button" class="lg:hidden group" aria-controls="navbar-menu" aria-expanded="false" aria-label="Open navbar menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="w-full max-w-screen-xl px-4 mx-auto sm:px-8 lg:flex sm:gap-8 lg:gap-16">
+
+        <!-- Sidebar menu -->
+        <aside id="sidebar-menu" class="fixed top-0 left-0 z-10 invisible hidden w-screen h-screen lg:pt-16 lg:-mt-16 lg:z-0 lg:sticky lg:visible lg:block lg:w-48 lg:bg-transparent bg-neutral-500/50 lg:shrink-0">
+            <div class="fixed top-0 left-0 h-full p-4 overflow-y-auto bg-white lg:p-0 lg:pt-16 lg:pb-32 lg:top-16 lg:sticky w-72 lg:w-48 lg:bg-transparent lg:dark:bg-transparent dark:bg-neutral-800 drop-shadow-md lg:drop-shadow-none" aria-labelledby="sidebar-menu">
+
+                <!-- Sidebar menu close button -->
+                <button id="sidebar-menu-close" type="button" class="absolute right-4 top-4 group lg:hidden" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Close sidebar menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 stroke-neutral-600 dark:stroke-neutral-400 group-hover:stroke-black dark:group-hover:stroke-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M18 6l-12 12" />
+                        <path d="M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Sidebar menu link -->
+                <ul class="space-y-6">
+                    <li class="space-y-4">
+                        <a href="#" class="block text-base font-bold text-black dark:text-white">Getting Started</a>
+                        <ul class="ml-4 space-y-3 marker:text-neutral-700 dark:marker:text-neutral-300">
+                            <li>
+                                <a href="#overview" class="block text-base text-neutral-600 dark:text-neutral-400 hover:text-black hover:dark:text-white">Overview</a>
+                            </li>
+                            <li>
+                                <a href="#customization" class="block text-base text-neutral-600 dark:text-neutral-400 hover:text-black hover:dark:text-white">Customization</a>
+                            </li>
+                            <li>
+                                <a href="#deployment" class="block text-base text-neutral-600 dark:text-neutral-400 hover:text-black hover:dark:text-white">Deployment</a>
+                            </li>
+                            <li>
+                                <a href="#best-practices" class="block text-base text-neutral-600 dark:text-neutral-400 hover:text-black hover:dark:text-white">Best Practices</a>
+                            </li>
+                            <li>
+                                <a href="#summary" class="block text-base text-neutral-600 dark:text-neutral-400 hover:text-black hover:dark:text-white">Summary</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">The Basics</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">API References</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">External Resources</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Troubleshooting</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block text-base font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">Contributing</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </aside>
+
+        <!-- Header section -->
+        <div class="flex-1 pt-16 pb-32 space-y-16">
+            <header class="space-y-4">
+                <div class="space-y-2">
+                    <p class="text-2xl font-black text-black sm:text-3xl lg:text-4xl dark:text-white">Getting Started</p>
+                </div>
+                <p class="text-base text-black sm:text-lg lg:text-xl dark:text-white">This documentation will guide you through the installation, usage, and customization of Tailstart.</p>
+            </header>
+
+            <section id="overview" class="space-y-4 scroll-mt-32">
+                <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Overview</p>
+                <p class="text-base text-neutral-700 dark:text-neutral-300">Tailstart is a versatile TailwindCSS library that provides a collection of multipurpose starter kits. These starter kits serve as a foundation for creating web applications or sites with TailwindCSS, significantly simplifying the initial setup and configuration process.</p>
+                <p class="text-base text-neutral-700 dark:text-neutral-300">Tailstart is designed to be flexible, making it compatible with various development stacks, and it does not include any specific bundler tools, such as Vite, Webpack, or Parcel.</p>
+            </section>
+
+            <section id="customization" class="space-y-4 scroll-mt-32">
+                <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Customization</p>
+                <p class="text-base text-neutral-700 dark:text-neutral-300">Tailstart is designed to be a flexible starting point for your projects. You can extend it by adding additional features, libraries, or frameworks to suit your specific needs. Here are some common ways to extend Tailstart:</p>
+                <ul class="ml-4 space-y-4 list-disc marker:text-neutral-700 dark:marker:text-neutral-300">
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Add Third-Party Libraries:</strong> Incorporate third-party JavaScript libraries, CSS frameworks, or other tools into your project.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Custom Components:</strong> Create custom components or UI elements to enhance your project's functionality and appearance.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Routing:</strong> If your project requires client-side routing, you can integrate a routing library like Vue Router, React Router, or reach-router.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>State Management:</strong> For complex web applications, you can implement state management using libraries such as Redux, Mobx, or Vuex.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Server-Side Rendering (SSR):</strong> If you need server-side rendering for improved performance and SEO, you can integrate a server-side rendering framework like Next.js or Nuxt.js.
+
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="deployment" class="space-y-4 scroll-mt-32">
+                <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Deployment</p>
+                <p class="text-base text-neutral-700 dark:text-neutral-300">When you are ready to deploy your Tailstart project to a production environment, you have several options:</p>
+                <ul class="ml-4 space-y-4 list-disc marker:text-neutral-700 dark:marker:text-neutral-300">
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Static Site Hosting:</strong> If your project is a static website, you can host it on platforms like Netlify, Vercel, GitHub Pages, or AWS S3.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Traditional Hosting:</strong> For more complex projects, you can deploy your Tailstart project on a traditional web server.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Docker:</strong> You can containerize your Tailstart project using Docker and deploy it on container orchestration platforms like Docker Swarm or Kubernetes..</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Serverless:</strong> If you prefer serverless architecture, you can deploy your project on AWS Lambda, Google Cloud Functions, or Azure Functions.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="best-practices" class="space-y-4 scroll-mt-32">
+                <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Best Practices</p>
+                <p class="text-base text-neutral-700 dark:text-neutral-300">To make the most of Tailstart and ensure the maintainability and scalability of your projects, consider the following best practices:</p>
+                <ul class="ml-4 space-y-4 list-disc marker:text-neutral-700 dark:marker:text-neutral-300">
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Modularization:</strong> Break down your project into small, reusable components, styles, and functions for more organized codebase.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Version Control:</strong> Use a version control system such as Git to track changes in your project. Consider using a platform like GitHub or GitLab for collaborative development.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Code Quality:</strong> You can containerize your Tailstart project using Docker and deploy it on container orchestration platforms like Docker Swarm or Kubernetes.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Documentation:</strong> Maintain clear and comprehensive documentation for your project. This includes code comments, README files, and user guides.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Testing:</strong> mplement testing frameworks like Jest, Cypress, or Mocha to validate the functionality of your application and ensure code reliability.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="text-base text-neutral-700 dark:text-neutral-300"><strong>Performance Optimization::</strong> Regularly audit and optimize your project for performance. Compress images, lazy-load assets, and follow web performance best practices.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="conclusion" class="space-y-4 scroll-mt-32">
+                <p class="text-lg font-bold text-black sm:text-xl lg:text-2xl dark:text-white">Conclusion</p>
+                <p class="text-base text-neutral-700 dark:text-neutral-300">Tailstart empowers you to kick-start your web development projects with TailwindCSS, providing a solid foundation for building modern web applications. By following the documentation, best practices, and security considerations, you can create high-quality, secure, and scalable projects.</p>
+            </section>
+
+        </div>
+        
+        
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="absolute bottom-0 w-full max-w-screen-xl px-4 pb-px text-center transform -translate-x-1/2 left-1/2 sm:px-8">
+        <p class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-app-name"></span> v<span id="footer-app-version"></span></p>
+        <span class="text-sm text-neutral-700 dark:text-neutral-300"><span id="footer-year"></span> © Developed by <a href="https://mkfizi.dev" target="_blank" class="inline-block font-semibold text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">mkfizi</a></span>
+    </footer>
+</body>
+</html>
