@@ -12,7 +12,7 @@ TailwindCSS documentation lite starter kit.
 * SEO-friendly metadata and social media tags: Includes relevant metadata and tags to optimize the website for search engines and improve social media sharing.
 * Sticky navbar with appearance toggle: Navbar remains fixed at the top of the page, and its appearance dynamically changes based on current scroll position.
 * Responsive menu with click outside, escape key and focus trap handler: Menus are programmed with proper keyboard navigation and responsive behaviour on all screen sizes.
-* On this page menu active link toggle: On this page menu links change appearance based or current scroll position which correspond to current viewed section.
+* Sidebar menu active link toggle: Sidebar menu links change appearance based or current scroll position which correspond to current viewed section.
 
 
 ## Installation
