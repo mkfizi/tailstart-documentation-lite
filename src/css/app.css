@@ -1058,6 +1058,10 @@ body{
 }
 
 @media (min-width: 640px) {
+  .sm\:right-8 {
+    right: 2rem;
+  }
+
   .sm\:gap-8 {
     gap: 2rem;
   }
