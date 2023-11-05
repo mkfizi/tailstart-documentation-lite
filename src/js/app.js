@@ -62,7 +62,6 @@
             // Handle when switching view between breakpoint size
             toggleResponsive: (targetView, targetElement) => {
 
-
                 // If window width past breakpoint size, close menu and remove `[aria-hidden]` attribute from it
                 if (window.innerWidth >= app.breakpointSize) {
                     if (targetElement.getAttribute('aria-hidden') === 'false') {
